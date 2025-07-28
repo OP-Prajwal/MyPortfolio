@@ -2,9 +2,11 @@ services:
   - type: web
     name: portfolio-backend
     env: node
+    region: singapore
+    plan: free
     rootDir: backend
     buildCommand: npm install
-    startCommand: node index.js
+    startCommand: npm start
     envVars:
       - key: PORT
         value: 5000
@@ -14,3 +16,5 @@ services:
         sync: false
       - key: CORS_ORIGIN
         value: https://myportfolio-op-prajwal.vercel.app
+    autoDeploy: true
+    healthCheckPath: /
