@@ -2,11 +2,12 @@ services:
   - type: web
     name: portfolio-backend
     env: node
+    runtime: node
     region: singapore
     plan: free
-    rootDir: ./backend
-    buildCommand: cd backend && npm install
-    startCommand: cd backend && npm start
+    rootDir: backend
+    buildCommand: npm install
+    startCommand: npm start
     envVars:
       - key: PORT
         value: 5000
