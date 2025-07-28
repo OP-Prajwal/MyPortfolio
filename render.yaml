@@ -15,6 +15,6 @@ services:
       - key: EMAIL_PASS
         sync: false
       - key: CORS_ORIGIN
-        value: https://myportfolio-op-prajwal.vercel.app
+        value: ${VITE_FRONTEND_URL}
     autoDeploy: true
     healthCheckPath: /
