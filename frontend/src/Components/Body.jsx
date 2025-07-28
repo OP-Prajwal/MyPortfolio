@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Projects from './Projects'
+import profilePic from '../assets/pfp.jpeg'
 
 const Body = () => {
   return (
@@ -21,7 +22,8 @@ const Body = () => {
             <span className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 animate-spin-slow p-1" style={{filter:'blur(2px)'}}></span>
             <img
               className="relative rounded-full h-40 w-40 sm:h-60 sm:w-60 object-cover border-4 border-white shadow-xl z-10"
-              src="/src/assets/pfp.jpeg" alt="Profile"
+              src={profilePic}
+              alt="Profile"
             />
           </div>
         </div>
