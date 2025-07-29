@@ -54,7 +54,6 @@ const ContactPage = () => {
           </span>
         </h2>
 
-        {/* Contact Cards */}
         <div className="flex flex-col gap-6">
           {/* Email */}
           <div
@@ -87,7 +86,16 @@ const ContactPage = () => {
             <div className="flex items-center gap-4">
               <div className="p-3 rounded-full bg-orange-500/20">
                 <svg className="w-7 h-7 sm:w-8 sm:h-8 text-orange-400" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303..."/>
+                  <path d="M12 0C5.37 0 0 5.373 0 12c0 5.303 3.438 9.8 8.205 
+                    11.387.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.726-4.042-1.61-4.042-1.61
+                    -.546-1.387-1.333-1.757-1.333-1.757-1.09-.745.083-.729.083-.729 
+                    1.205.084 1.84 1.236 1.84 1.236 1.07 1.834 2.807 1.304 3.492.997.108-.775.418-1.305.76-1.605
+                    -2.665-.3-5.466-1.332-5.466-5.932 0-1.31.467-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 
+                    1.005-.322 3.3 1.23a11.52 11.52 0 0 1 3-.405c1.02.005 2.045.138 3 
+                    .405 2.28-1.552 3.285-1.23 3.285-1.23 .645 1.653.24 2.873.12 3.176.765.84 
+                    1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 
+                    0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 
+                    21.795 24 17.295 24 12c0-6.627-5.373-12-12-12z"/>
                 </svg>
               </div>
               <div className="flex-1">
@@ -101,59 +109,73 @@ const ContactPage = () => {
           </a>
 
           {/* Anonymous Message */}
-          <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-blue-900/30 to-black border border-blue-900/50 hover:border-blue-500/50 transition-all duration-300">
-            <form onSubmit={handleSubmit} className="space-y-5">
-              <div>
-                <label htmlFor="subject" className="block text-sm text-gray-300 mb-1">Subject (optional)</label>
-                <input
-                  id="subject"
-                  type="text"
-                  value={formData.subject}
-                  onChange={handleInputChange}
-                  disabled={isSubmitting}
-                  placeholder="What's this about?"
-                  className="w-full px-4 py-3 rounded-xl bg-black/50 border border-blue-900/50 text-sm text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30"
-                />
-              </div>
-              <div>
-                <label htmlFor="message" className="block text-sm text-gray-300 mb-1">Your Message</label>
-                <textarea
-                  id="message"
-                  value={formData.message}
-                  onChange={handleInputChange}
-                  rows={4}
-                  required
-                  disabled={isSubmitting}
-                  placeholder="Type your message here..."
-                  className="w-full px-4 py-3 rounded-xl bg-black/50 border border-blue-900/50 text-sm text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30 resize-none"
-                />
-              </div>
+         {/* Anonymous Message */}
+<div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-br from-blue-900/30 to-black border border-blue-900/50 hover:border-blue-500/50 transition-all duration-300">
+  <div className="flex items-center gap-4 mb-4">
+    <div className="p-3 rounded-full bg-blue-500/20">
+      <svg className="w-7 h-7 sm:w-8 sm:h-8 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 8h10M7 12h6m-2 8a9 9 0 100-18 9 9 0 000 18z" />
+      </svg>
+    </div>
+    <div className="flex-1">
+      <h3 className="text-lg sm:text-xl font-semibold text-blue-400">Send Anonymous Message</h3>
+      <p className="text-sm text-gray-400">No email required</p>
+    </div>
+  </div>
 
-              {submitStatus === 'success' && (
-                <p className="text-green-400 text-center text-sm">Message sent successfully!</p>
-              )}
+  <form onSubmit={handleSubmit} className="space-y-5">
+    <div>
+      <label htmlFor="subject" className="block text-sm text-gray-300 mb-1">Subject (optional)</label>
+      <input
+        id="subject"
+        type="text"
+        value={formData.subject}
+        onChange={handleInputChange}
+        disabled={isSubmitting}
+        placeholder="What's this about?"
+        className="w-full px-4 py-3 rounded-xl bg-black/50 border border-blue-900/50 text-sm text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30"
+      />
+    </div>
+    <div>
+      <label htmlFor="message" className="block text-sm text-gray-300 mb-1">Your Message</label>
+      <textarea
+        id="message"
+        value={formData.message}
+        onChange={handleInputChange}
+        rows={4}
+        required
+        disabled={isSubmitting}
+        placeholder="Type your message here..."
+        className="w-full px-4 py-3 rounded-xl bg-black/50 border border-blue-900/50 text-sm text-gray-200 placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-blue-500/30 resize-none"
+      />
+    </div>
 
-              <button
-                type="submit"
-                disabled={isSubmitting || !formData.message.trim()}
-                className="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-blue-400 text-white text-sm font-medium hover:from-blue-500 hover:to-blue-300 transition-all duration-200 disabled:opacity-50"
-              >
-                {isSubmitting ? (
-                  <svg className="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0..." />
-                  </svg>
-                ) : (
-                  <>
-                    <span>Send Message</span>
-                    <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-                    </svg>
-                  </>
-                )}
-              </button>
-            </form>
-          </div>
+    {submitStatus === 'success' && (
+      <p className="text-green-400 text-center text-sm">Message sent successfully!</p>
+    )}
+
+    <button
+      type="submit"
+      disabled={isSubmitting || !formData.message.trim()}
+      className="w-full flex items-center justify-center gap-2 px-6 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-blue-400 text-white text-sm font-medium hover:from-blue-500 hover:to-blue-300 transition-all duration-200 disabled:opacity-50"
+    >
+      {isSubmitting ? (
+        <svg className="animate-spin h-5 w-5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+          <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0..." />
+        </svg>
+      ) : (
+        <>
+          <span>Send Message</span>
+          <svg className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+          </svg>
+        </>
+      )}
+    </button>
+  </form>
+</div>
+
         </div>
       </div>
     </div>
